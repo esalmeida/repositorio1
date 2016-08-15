@@ -7,21 +7,35 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FileSerializer {
+public class FileSerializer implements Serializer {
 	
 	private PostProcessor pp;
 	private DataFormatter df;
 
 	public FileSerializer(PostProcessor pp, DataFormatter df) {
-		
 		this.pp = pp;
 		this.df = df;
 	}
 
-	public FileSerializer() {
-		super();
+//	public FileSerializer() {
+//		super();
+//	}
+
+	
+	@Override
+	public PostProcessor getPostProcessor() {
+		return pp;
 	}
 
+	@Override
+	public void setPostProcessor(PostProcessor pp) {
+		this.pp = pp;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.cbsoft.framework.Serializer#generateFile(java.lang.String, java.lang.Object)
+	 */
+	@Override
 	public void generateFile(String filename, Object obj) {
 		byte[] bytes = df.formatData(getPropertiesList(obj));
 

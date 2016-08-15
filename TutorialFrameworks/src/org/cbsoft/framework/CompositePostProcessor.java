@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompositePostProcesso implements PostProcessor {
+public class CompositePostProcessor implements PostProcessor {
     private List<PostProcessor> processors;
-    public CompositePostProcesso(PostProcessor... list){
+    public CompositePostProcessor(PostProcessor... list){
     	processors = new ArrayList<PostProcessor>();
     	for(PostProcessor p:list)
     		processors.add(p);
