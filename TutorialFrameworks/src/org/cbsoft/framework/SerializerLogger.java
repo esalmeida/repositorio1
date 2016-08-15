@@ -1,5 +1,7 @@
 package org.cbsoft.framework;
-
+/*
+ * Implementa a interface Serializer
+ */
 public class SerializerLogger implements Serializer {
 	private Serializer serializer;
 	public SerializerLogger(Serializer serializer) {
